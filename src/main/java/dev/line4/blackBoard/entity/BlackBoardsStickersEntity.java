@@ -29,5 +29,44 @@ public class BlackBoardsStickersEntity {
     @ManyToOne
     @JoinColumn(name = "board_id")
     private BlackBoardsEntity boardId;
-    
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public long getNum() {
+        return num;
+    }
+
+    public void setNum(long num) {
+        this.num = num;
+    }
+
+    public double getPositionX() {
+        return positionX;
+    }
+
+    public void setPositionX(double positionX) {
+        this.positionX = positionX;
+    }
+
+    public double getPositionY() {
+        return positionY;
+    }
+
+    public void setPositionY(double positionY) {
+        this.positionY = positionY;
+    }
+
+    public BlackBoardsEntity getBoardId() {
+        return boardId;
+    }
+
+    public void setBoardId(BlackBoardsEntity boardId) {
+        this.boardId = boardId;
+    }
 }
