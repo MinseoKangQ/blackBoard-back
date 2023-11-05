@@ -3,6 +3,7 @@ package dev.line4.blackBoard.letter.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,4 +47,34 @@ public class Letters {
     @OneToMany(mappedBy = "letter", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<LetterStickers> stickers = new ArrayList<>();
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Letters letters = (Letters) o;
+        return Objects.equals(letterId, letters.letterId) && Objects.equals(content, letters.content)
+                && Objects.equals(nickname, letters.nickname) && Objects.equals(font, letters.font)
+                && Objects.equals(stickers, letters.stickers);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(letterId, content, nickname, font, stickers);
+    }
+
+    @Override
+    public String toString() {
+        return "Letters{" +
+                "letterId=" + letterId +
+                ", content='" + content + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", font=" + font +
+                ", stickers=" + stickers +
+                '}';
+    }
+    
 }
