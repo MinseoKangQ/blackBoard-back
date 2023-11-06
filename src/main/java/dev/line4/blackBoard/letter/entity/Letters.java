@@ -40,7 +40,10 @@ public class Letters {
     private String nickname;
 
     @Column(name = "font")
-    private Long font;
+    private String font;
+
+    @Column(name = "align")
+    private String align;
 
     // black_board_id (FK) 추후에 추가
 
@@ -59,12 +62,12 @@ public class Letters {
         Letters letters = (Letters) o;
         return Objects.equals(letterId, letters.letterId) && Objects.equals(content, letters.content)
                 && Objects.equals(nickname, letters.nickname) && Objects.equals(font, letters.font)
-                && Objects.equals(stickers, letters.stickers);
+                && Objects.equals(align, letters.align) && Objects.equals(stickers, letters.stickers);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(letterId, content, nickname, font, stickers);
+        return Objects.hash(letterId, content, nickname, font, align, stickers);
     }
 
     @Override
@@ -73,9 +76,9 @@ public class Letters {
                 "letterId=" + letterId +
                 ", content='" + content + '\'' +
                 ", nickname='" + nickname + '\'' +
-                ", font=" + font +
+                ", font='" + font + '\'' +
+                ", align='" + align + '\'' +
                 ", stickers=" + stickers +
                 '}';
     }
-
 }
