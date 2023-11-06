@@ -1,6 +1,7 @@
 package dev.line4.blackBoard.letter.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import dev.line4.blackBoard.lettersticker.entity.LetterStickers;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -76,5 +77,5 @@ public class Letters {
                 ", stickers=" + stickers +
                 '}';
     }
-    
+
 }
