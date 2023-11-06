@@ -1,6 +1,7 @@
-package dev.line4.blackBoard.letter.entity;
+package dev.line4.blackBoard.lettersticker.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import dev.line4.blackBoard.letter.entity.Letters;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;

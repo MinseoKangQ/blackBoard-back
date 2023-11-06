@@ -9,7 +9,7 @@
         <class>dev.line4.blackBoard.entity.BlackBoardsEntity</class>
         <class>dev.line4.blackBoard.entity.BlackBoardsStickersEntity</class>
         <class>dev.line4.blackBoard.letter.entity.Letters</class>
-        <class>dev.line4.blackBoard.letter.entity.LetterStickers</class>
+        <class>dev.line4.blackBoard.lettersticker.entity.LetterStickers</class>
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
