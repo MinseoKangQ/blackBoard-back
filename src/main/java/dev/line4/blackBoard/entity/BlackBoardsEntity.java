@@ -1,11 +1,17 @@
 package dev.line4.blackBoard.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import dev.line4.blackBoard.letter.entity.Letters;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /*
 id long
@@ -32,6 +38,10 @@ public class BlackBoardsEntity {
     private LocalDateTime graduate_date;
     @Column(columnDefinition = "TEXT")
     private String url;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "blackboard", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Letters> letters = new ArrayList<>();
 
     public Long getId() {
         return id;
