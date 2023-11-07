@@ -1,6 +1,8 @@
 package dev.line4.blackBoard.blackboard.controller;
 
 import dev.line4.blackBoard.blackboard.service.BlackBoardService;
+import java.util.HashMap;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,9 @@ public class BlackBoardController {
     }
 
     @GetMapping("blackboard")
-    public long getTotalRecordCount() {
-        return blackBoardService.getTotalRecordCount();
+    public Map<String, Integer> getTotalRecordCount() {
+        Map<String, Integer> response = new HashMap<>();
+        response.put("blackboard_count", (int) blackBoardService.getTotalRecordCount());
+        return response;
     }
 }
