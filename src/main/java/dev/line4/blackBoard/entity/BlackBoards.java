@@ -21,7 +21,7 @@ url text
 @Getter
 @Setter
 @Entity
-public class BlackBoardsEntity {
+public class BlackBoards {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -19,7 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class BlackBoardsStickersEntity {
+public class BlackBoardStickers {
     @Id
     private String id;
     private Long num;
@@ -29,5 +29,5 @@ public class BlackBoardsStickersEntity {
     private double positionY;
     @ManyToOne
     @JoinColumn(name = "board_id")
-    private BlackBoardsEntity boardId;
+    private BlackBoards boardId;
 }
