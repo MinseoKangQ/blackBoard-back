@@ -1,11 +1,14 @@
 package dev.line4.blackBoard.entity;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,4 +38,6 @@ public class BlackBoards {
     private LocalDateTime graduateDate;
     @Column(columnDefinition = "TEXT")
     private String url;
+    @OneToMany(mappedBy = "boardId", fetch = FetchType.LAZY)
+    private Set<BlackBoardStickers> blackBoardStickers;
 }
