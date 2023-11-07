@@ -1,4 +1,4 @@
-package dev.line4.blackBoard.entity;
+package dev.line4.blackBoard.blackboard.entity;
 
 import java.time.LocalDateTime;
 import java.util.Set;
