@@ -31,8 +31,8 @@ public class BlackBoardsEntity {
     private String introduction;
     @Column(length = 255)
     private String email;
-    @Column
-    private LocalDateTime graduate_date;
+    @Column(name = "graduate_date")
+    private LocalDateTime graduateDate;
     @Column(columnDefinition = "TEXT")
     private String url;
 }
