@@ -6,10 +6,13 @@
     <persistence-unit name="blackboard">
         <!--    Entity 등록    -->
         <!--        <class>dev.line4.blackBoard.엔티티클래스명</class>-->
+        <class>dev.line4.blackBoard.blackboard.entity.BlackBoards</class>
+        <class>dev.line4.blackBoard.blackboardsticker.entity.BlackBoardStickers</class>
         <class>dev.line4.blackBoard.entity.BlackBoardsEntity</class>
         <class>dev.line4.blackBoard.entity.BlackBoardsStickersEntity</class>
         <class>dev.line4.blackBoard.letter.entity.Letters</class>
         <class>dev.line4.blackBoard.lettersticker.entity.LetterStickers</class>
+
         <properties>
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
