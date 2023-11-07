@@ -1,4 +1,4 @@
-package dev.line4.blackBoard.blackboard.entity;
+package dev.line4.blackBoard.blackboardsticker.entity;
 
 /*
 id long
@@ -8,6 +8,7 @@ position_y
 board_id
  */
 
+import dev.line4.blackBoard.blackboard.entity.BlackBoards;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

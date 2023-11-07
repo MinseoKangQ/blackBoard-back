@@ -1,5 +1,6 @@
 package dev.line4.blackBoard.blackboard.entity;
 
+import dev.line4.blackBoard.blackboardsticker.entity.BlackBoardStickers;
 import java.time.LocalDateTime;
 import java.util.Set;
 import javax.persistence.Column;
