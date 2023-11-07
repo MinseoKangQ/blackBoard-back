@@ -31,6 +31,8 @@ public class BlackBoardStickers {
     private double positionX;
     @Column(name = "position_y")
     private double positionY;
+    @Column
+    private int img;
     @ManyToOne
     @JoinColumn(name = "board_id")
     private BlackBoards boardId;
