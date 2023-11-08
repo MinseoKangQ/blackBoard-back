@@ -1,6 +1,7 @@
 package dev.line4.blackBoard.letter.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import dev.line4.blackBoard.entity.BlackBoardsEntity;
 import dev.line4.blackBoard.lettersticker.entity.LetterStickers;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +9,12 @@ import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -45,7 +49,10 @@ public class Letters {
     @Column(name = "align")
     private String align;
 
-    // black_board_id (FK) 추후에 추가
+    @JsonIgnore
+    @JoinColumn(name = "blackboard_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private BlackBoardsEntity blackboard; // FK
 
     @JsonIgnore
     @OneToMany(mappedBy = "letter", cascade = CascadeType.REMOVE, orphanRemoval = true)

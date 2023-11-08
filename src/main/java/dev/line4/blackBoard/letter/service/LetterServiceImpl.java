@@ -2,6 +2,7 @@ package dev.line4.blackBoard.letter.service;
 
 import dev.line4.blackBoard.letter.dto.LetterReqDto;
 import dev.line4.blackBoard.letter.dto.LetterResDto;
+import dev.line4.blackBoard.letter.dto.VisitorResDto;
 import dev.line4.blackBoard.letter.entity.Letters;
 import dev.line4.blackBoard.letter.repository.LetterRepository;
 import dev.line4.blackBoard.lettersticker.service.LetterStickerServiceImpl;
@@ -43,4 +44,13 @@ public class LetterServiceImpl implements LetterService {
         return resDto;
 
     }
+
+    @Override
+    public VisitorResDto readVisitor(String blackboardId) {
+        // 칠판 엔티티 찾기
+        // 찾은 칠판 엔티티로 letter list 조회
+        // letter 의 nickname 만 dto 에 담아서 return
+        return null;
+    }
+
 }

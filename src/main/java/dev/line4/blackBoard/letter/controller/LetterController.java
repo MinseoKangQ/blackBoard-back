@@ -2,10 +2,12 @@ package dev.line4.blackBoard.letter.controller;
 
 import dev.line4.blackBoard.letter.dto.LetterReqDto;
 import dev.line4.blackBoard.letter.dto.LetterResDto;
+import dev.line4.blackBoard.letter.dto.VisitorResDto;
 import dev.line4.blackBoard.letter.service.LetterServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,12 @@ public class LetterController {
                                           @RequestParam("id") String blackboardId) {
         LetterResDto result = letterService.createLetter(dto, blackboardId);
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
+    }
+
+    @GetMapping("visitor")
+    public ResponseEntity<?> readVisitor(@RequestParam("id") String blackboardId) {
+        VisitorResDto result = letterService.readVisitor(blackboardId);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
     }
 
 }
