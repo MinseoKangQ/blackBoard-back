@@ -27,8 +27,7 @@ url text
 @Entity
 public class BlackBoards {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
     @Column(length = 50)
     private String title;
     @Column(length = 100)

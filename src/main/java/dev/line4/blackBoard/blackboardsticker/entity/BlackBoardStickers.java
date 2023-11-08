@@ -11,6 +11,8 @@ board_id
 import dev.line4.blackBoard.blackboard.entity.BlackBoards;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -22,12 +24,15 @@ import lombok.Setter;
 @Entity
 public class BlackBoardStickers {
     @Id
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private Long num;
     @Column(name = "position_x")
     private double positionX;
     @Column(name = "position_y")
     private double positionY;
+    @Column
+    private int img;
     @ManyToOne
     @JoinColumn(name = "board_id")
     private BlackBoards boardId;
