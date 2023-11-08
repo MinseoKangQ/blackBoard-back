@@ -23,10 +23,12 @@ public class LetterStickerServiceImpl implements LetterStickerService {
                     .positionY(stickerDto.getPositionY())
                     .img(stickerDto.getImg())
                     .width(stickerDto.getWidth())
+                    .angle(stickerDto.getAngle())
+                    .mirror(stickerDto.getMirror())
                     .letter(letter)
                     .build();
             letterStickerRepository.save(sticker);
         }
     }
-    
+
 }

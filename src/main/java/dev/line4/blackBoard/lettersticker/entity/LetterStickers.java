@@ -47,6 +47,12 @@ public class LetterStickers {
     @Column(name = "width")
     private Double width;
 
+    @Column(name = "angle")
+    private Double angle;
+
+    @Column(name = "mirror")
+    private Long mirror;
+
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "letter_id")

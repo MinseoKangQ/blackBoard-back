@@ -13,4 +13,6 @@ public class LetterStickerReqDto {
     private Double positionY;
     private Long img;
     private Double width;
+    private Double angle;
+    private Long mirror;
 }
