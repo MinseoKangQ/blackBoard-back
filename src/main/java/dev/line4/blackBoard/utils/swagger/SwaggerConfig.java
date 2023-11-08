@@ -1,4 +1,4 @@
-package dev.line4.blackBoard.swagger;
+package dev.line4.blackBoard.utils.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
