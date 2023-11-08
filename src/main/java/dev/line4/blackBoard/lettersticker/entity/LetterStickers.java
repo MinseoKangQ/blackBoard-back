@@ -70,12 +70,13 @@ public class LetterStickers {
         return Objects.equals(letterStickerId, that.letterStickerId) && Objects.equals(num, that.num)
                 && Objects.equals(positionX, that.positionX) && Objects.equals(positionY,
                 that.positionY) && Objects.equals(img, that.img) && Objects.equals(width, that.width)
+                && Objects.equals(angle, that.angle) && Objects.equals(mirror, that.mirror)
                 && Objects.equals(letter, that.letter);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(letterStickerId, num, positionX, positionY, img, width, letter);
+        return Objects.hash(letterStickerId, num, positionX, positionY, img, width, angle, mirror, letter);
     }
 
     @Override
@@ -87,6 +88,8 @@ public class LetterStickers {
                 ", positionY=" + positionY +
                 ", img=" + img +
                 ", width=" + width +
+                ", angle=" + angle +
+                ", mirror=" + mirror +
                 ", letter=" + letter +
                 '}';
     }

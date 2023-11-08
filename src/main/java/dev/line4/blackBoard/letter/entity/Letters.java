@@ -1,7 +1,7 @@
 package dev.line4.blackBoard.letter.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import dev.line4.blackBoard.entity.BlackBoardsEntity;
+import dev.line4.blackBoard.blackboard.entity.BlackBoards;
 import dev.line4.blackBoard.lettersticker.entity.LetterStickers;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class Letters {
     @JsonIgnore
     @JoinColumn(name = "blackboard_id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private BlackBoardsEntity blackboard; // FK
+    private BlackBoards blackboard; // FK
 
     @JsonIgnore
     @OneToMany(mappedBy = "letter", cascade = CascadeType.REMOVE, orphanRemoval = true)
