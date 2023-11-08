@@ -1,11 +1,16 @@
 package dev.line4.blackBoard.letter.service;
 
+import dev.line4.blackBoard.blackboard.entity.BlackBoards;
+import dev.line4.blackBoard.blackboard.repository.BlackBoardRepository;
 import dev.line4.blackBoard.letter.dto.LetterReqDto;
 import dev.line4.blackBoard.letter.dto.LetterResDto;
 import dev.line4.blackBoard.letter.dto.VisitorResDto;
 import dev.line4.blackBoard.letter.entity.Letters;
 import dev.line4.blackBoard.letter.repository.LetterRepository;
 import dev.line4.blackBoard.lettersticker.service.LetterStickerServiceImpl;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,14 +18,19 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class LetterServiceImpl implements LetterService {
 
-    // 추후에 BlackBoardRepository 추가
+    private final BlackBoardRepository boardRepository;
     private final LetterRepository letterRepository;
     private final LetterStickerServiceImpl letterStickerService;
 
     @Override
     public LetterResDto createLetter(LetterReqDto dto, String blackboardId) {
 
-        // 추후에 blackboard 와 연관관계 작성
+        Optional<BlackBoards> existingBlackBoard = boardRepository.findById(blackboardId);
+
+        if (existingBlackBoard.isEmpty()) {
+            System.out.println("칠판이 존재하지 않음");
+            return null;
+        }
 
         // Letter 빌드
         Letters newLetter = Letters.builder()
@@ -28,6 +38,7 @@ public class LetterServiceImpl implements LetterService {
                 .content(dto.getContent())
                 .font(dto.getFont())
                 .align(dto.getAlign())
+                .blackboard(boardRepository.findById(blackboardId).get())
                 .build();
 
         // Letter 저장
@@ -47,10 +58,30 @@ public class LetterServiceImpl implements LetterService {
 
     @Override
     public VisitorResDto readVisitor(String blackboardId) {
-        // 칠판 엔티티 찾기
+
+        // 칠판 찾기
+        Optional<BlackBoards> existingBlackBoard = boardRepository.findById(blackboardId);
+
+        if (existingBlackBoard.isEmpty()) {
+            System.out.println("칠판이 존재하지 않음");
+            return null;
+        }
+
         // 찾은 칠판 엔티티로 letter list 조회
-        // letter 의 nickname 만 dto 에 담아서 return
-        return null;
+        List<Letters> letters = existingBlackBoard.get().getLetters();
+
+        // letter 의 nickname 만 추출해서 리스터트에 담기
+        List<String> nicknames = letters.stream()
+                .map(Letters::getNickname)
+                .collect(Collectors.toList());
+
+        // 리턴값 빌드
+        VisitorResDto resDto = VisitorResDto.builder()
+                .nickname(nicknames)
+                .build();
+
+        return resDto;
+        
     }
 
 }

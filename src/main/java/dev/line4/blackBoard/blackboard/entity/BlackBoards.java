@@ -1,13 +1,16 @@
 package dev.line4.blackBoard.blackboard.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.line4.blackBoard.blackboardsticker.entity.BlackBoardStickers;
+import dev.line4.blackBoard.letter.entity.Letters;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import lombok.Getter;
@@ -40,4 +43,7 @@ public class BlackBoards {
     private String url;
     @OneToMany(mappedBy = "boardId", fetch = FetchType.LAZY)
     private Set<BlackBoardStickers> blackBoardStickers;
+    @JsonIgnore
+    @OneToMany(mappedBy = "blackboard", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    private List<Letters> letters = new ArrayList<>();
 }
