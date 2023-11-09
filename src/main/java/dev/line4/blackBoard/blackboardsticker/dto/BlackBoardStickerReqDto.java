@@ -7,7 +7,7 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class BlackBoardStickerDto {
+public class BlackBoardStickerReqDto {
     private Long num;
     private Double positionX;
     private Double positionY;
