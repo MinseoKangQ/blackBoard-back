@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -28,6 +29,7 @@ url text
 @Getter
 @Setter
 @Entity
+@Builder
 public class BlackBoards {
     @Id
     private String id;
