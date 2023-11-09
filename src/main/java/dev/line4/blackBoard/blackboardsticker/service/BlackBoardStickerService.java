@@ -1,7 +1,7 @@
 package dev.line4.blackBoard.blackboardsticker.service;
 
 import dev.line4.blackBoard.blackboard.entity.BlackBoards;
-import dev.line4.blackBoard.blackboardsticker.dto.BlackBoardStickerDto;
+import dev.line4.blackBoard.blackboardsticker.dto.BlackBoardStickerReqDto;
 import dev.line4.blackBoard.blackboardsticker.entity.BlackBoardStickers;
 import dev.line4.blackBoard.blackboardsticker.repository.BlackBoardStickerRepository;
 import java.util.List;
@@ -15,9 +15,9 @@ public class BlackBoardStickerService {
         this.blackBoardStickerRepository = blackBoardStickerRepository;
     }
 
-    public void createBlackBoardStickers(List<BlackBoardStickerDto> stickerDtos, BlackBoards blackboard) {
+    public void createBlackBoardStickers(List<BlackBoardStickerReqDto> stickerDtos, BlackBoards blackboard) {
 
-        for (BlackBoardStickerDto stickerDto : stickerDtos) {
+        for (BlackBoardStickerReqDto stickerDto : stickerDtos) {
             BlackBoardStickers blackBoardStickers = BlackBoardStickers.builder()
                     .num(stickerDto.getNum())
                     .positionX(stickerDto.getPositionX())

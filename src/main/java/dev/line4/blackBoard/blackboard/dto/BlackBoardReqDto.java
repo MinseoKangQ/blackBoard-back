@@ -1,6 +1,6 @@
 package dev.line4.blackBoard.blackboard.dto;
 
-import dev.line4.blackBoard.blackboardsticker.dto.BlackBoardStickerDto;
+import dev.line4.blackBoard.blackboardsticker.dto.BlackBoardStickerReqDto;
 import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,5 +14,5 @@ public class BlackBoardReqDto {
     private String introduction;
     private String email;
     private String graduateDate;
-    private List<BlackBoardStickerDto> stickers;
+    private List<BlackBoardStickerReqDto> stickers;
 }
