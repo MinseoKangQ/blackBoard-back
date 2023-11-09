@@ -32,8 +32,10 @@ public class BlackBoardService {
     }
 
     public BlackBoardResDto createBlackBoard(BlackBoardReqDto blackBoardReqDto) {
+        String randomUrl = UUID.randomUUID().toString().substring(0, 12);
 
         BlackBoards blackBoards = BlackBoards.builder()
+                .id(randomUrl)
                 .title(blackBoardReqDto.getTitle())
                 .introduction(blackBoardReqDto.getIntroduction())
                 .email(blackBoardReqDto.getEmail())
@@ -43,13 +45,11 @@ public class BlackBoardService {
                 .build();
         blackBoardRepository.save(blackBoards);
 
-        String randomUrl = UUID.randomUUID().toString().substring(0, 12);
         return BlackBoardResDto.builder().url(randomUrl).build();
     }
-
-    // 졸업날짜 yyyy-mm-dd 형식
+    
     private LocalDateTime parseGraduateDate(String graduateDate) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return LocalDateTime.parse(graduateDate, formatter);
     }
 
