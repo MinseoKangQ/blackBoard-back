@@ -1,9 +1,12 @@
 package dev.line4.blackBoard.blackboardsticker.dto;
 
 public class BlackBoardStickerDto {
-    private int num;
-    private double positionX;
-    private double positionY;
-    private int img;
-    private double width;
+    private Long num;
+    private Double positionX;
+    private Double positionY;
+    private Integer img;
+    private Double width;
+    private Double angle;
+    private Long mirror;
+    private Long boardId;
 }
