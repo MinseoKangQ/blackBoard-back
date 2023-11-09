@@ -1,10 +1,9 @@
 package dev.line4.blackBoard.blackboard.controller;
 
+import dev.line4.blackBoard.blackboard.dto.BlackBoardCountDto;
 import dev.line4.blackBoard.blackboard.dto.BlackBoardReqDto;
 import dev.line4.blackBoard.blackboard.dto.BlackBoardResDto;
 import dev.line4.blackBoard.blackboard.service.BlackBoardService;
-import java.util.HashMap;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,10 +25,10 @@ public class BlackBoardController {
     }
 
     @GetMapping("/blackboard")
-    public Map<String, Integer> getTotalRecordCount() {
-        Map<String, Integer> response = new HashMap<>();
-        response.put("blackboard_count", (int) blackBoardService.getTotalRecordCount());
-        return response;
+    public BlackBoardCountDto getTotalRecordCount() {
+        return BlackBoardCountDto.builder()
+                .blackboard_count(blackBoardService.getTotalRecordCount())
+                .build();
     }
 
     @PostMapping("/blackboard")
