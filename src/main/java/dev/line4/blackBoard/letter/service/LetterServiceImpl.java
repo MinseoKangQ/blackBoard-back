@@ -49,7 +49,7 @@ public class LetterServiceImpl implements LetterService {
 
         // 리턴값 (url) 빌드
         LetterResDto resDto = LetterResDto.builder()
-                .url("임시값입니다. 실제로는 blackboardId, 즉 url 이 들어옵니다.")
+                .url(blackboardId)
                 .build();
 
         return resDto;
@@ -81,7 +81,7 @@ public class LetterServiceImpl implements LetterService {
                 .build();
 
         return resDto;
-        
+
     }
 
 }

@@ -50,7 +50,7 @@ public class Letters {
     private String align;
 
     @JsonIgnore
-    @JoinColumn(name = "blackboard_id")
+    @JoinColumn(name = "board_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private BlackBoards blackboard; // FK
 
