@@ -16,12 +16,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@Builder
+@AllArgsConstructor
+@Table(name = "BLACKBOARD_STICKERS")
 public class BlackBoardStickers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,8 +48,12 @@ public class BlackBoardStickers {
 
     @Column(name = "mirror")
     private Long mirror;
-    
+
     @ManyToOne
     @JoinColumn(name = "board_id")
     private BlackBoards boardId;
+
+    // 기본 생성자
+    public BlackBoardStickers() {
+    }
 }

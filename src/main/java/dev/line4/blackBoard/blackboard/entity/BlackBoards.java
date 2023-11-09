@@ -1,6 +1,5 @@
 package dev.line4.blackBoard.blackboard.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import dev.line4.blackBoard.blackboardsticker.entity.BlackBoardStickers;
 import dev.line4.blackBoard.letter.entity.Letters;
 import java.time.LocalDateTime;
@@ -13,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -30,6 +31,8 @@ url text
 @Setter
 @Entity
 @Builder
+@AllArgsConstructor
+@Table(name = "BLACKBOARD")
 public class BlackBoards {
     @Id
     private String id;
@@ -45,7 +48,10 @@ public class BlackBoards {
     private String url;
     @OneToMany(mappedBy = "boardId", fetch = FetchType.LAZY)
     private Set<BlackBoardStickers> blackBoardStickers;
-    @JsonIgnore
     @OneToMany(mappedBy = "blackboard", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Letters> letters = new ArrayList<>();
+
+    public BlackBoards() {
+
+    }
 }
