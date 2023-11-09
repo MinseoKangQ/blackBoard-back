@@ -55,6 +55,7 @@ public class Letters {
     private BlackBoards blackboard; // FK
 
     @JsonIgnore
+    @Builder.Default
     @OneToMany(mappedBy = "letter", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<LetterStickers> stickers = new ArrayList<>();
 
