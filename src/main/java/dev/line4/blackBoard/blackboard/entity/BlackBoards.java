@@ -44,8 +44,6 @@ public class BlackBoards {
     private String email;
     @Column(name = "graduate_date")
     private LocalDateTime graduateDate;
-    @Column(columnDefinition = "TEXT")
-    private String url;
     @OneToMany(mappedBy = "boardId", fetch = FetchType.LAZY)
     private Set<BlackBoardStickers> blackBoardStickers;
     @OneToMany(mappedBy = "blackboard", cascade = CascadeType.REMOVE, orphanRemoval = true)
