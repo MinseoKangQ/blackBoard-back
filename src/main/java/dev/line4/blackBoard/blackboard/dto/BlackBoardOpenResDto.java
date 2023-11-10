@@ -14,6 +14,6 @@ public class BlackBoardOpenResDto {
     private String title;
     private String introduction;
     private String graduateDate;
-    private List<BlackBoardStickerResDto> boardStickers;
+    private List<BlackBoardStickerResDto> stickers;
     private List<LetterOpenResDto> letters;
 }
