@@ -15,15 +15,11 @@
             <!-- 필수 속성 -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <!-- local -->
-            <property name="javax.persistence.jdbc.user" value="root"/>
-            <property name="javax.persistence.jdbc.password" value="1234"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/black_board"/>
+            <property name="javax.persistence.jdbc.user" value="admin"/>
+            <property name="javax.persistence.jdbc.password" value="clfvkstjqltm1111"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://blackboard-db.cnfnmk8c498x.ap-northeast-2.rds.amazonaws.com:3306/blackboard"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
-            <!--            <property name="javax.persistence.jdbc.user" value="admin"/>-->
-            <!--            <property name="javax.persistence.jdbc.password" value="clfvkstjqltm1111"/>-->
-            <!--            <property name="javax.persistence.jdbc.url"-->
-            <!--                      value="jdbc:mysql://blackboard-db.cnfnmk8c498x.ap-northeast-2.rds.amazonaws.com:3306/blackboard"/>-->
-            <!--            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>-->
 
             <!-- 콘솔에 SQL 출력 여부 -->
             <property name="hibernate.show_sql" value="true"/>

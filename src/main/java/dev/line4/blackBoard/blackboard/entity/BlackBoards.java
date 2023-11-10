@@ -46,6 +46,7 @@ public class BlackBoards {
     private LocalDateTime graduateDate;
     @OneToMany(mappedBy = "boardId", fetch = FetchType.LAZY)
     private Set<BlackBoardStickers> blackBoardStickers;
+    @Builder.Default
     @OneToMany(mappedBy = "blackboard", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Letters> letters = new ArrayList<>();
 
