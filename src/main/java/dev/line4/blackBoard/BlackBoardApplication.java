@@ -6,10 +6,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
-@Import(AppConfig.class)
+//@Import(AppConfig.class)
 public class BlackBoardApplication {
 
     public static void main(String[] args) {
