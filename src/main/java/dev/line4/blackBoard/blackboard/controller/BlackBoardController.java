@@ -32,7 +32,7 @@ public class BlackBoardController {
     @GetMapping("/blackboards")
     public BlackBoardCountDto getTotalRecordCount() {
         return BlackBoardCountDto.builder()
-                .blackboard_count(blackBoardService.getTotalRecordCount())
+                .blackboardCount(blackBoardService.getTotalRecordCount())
                 .build();
     }
 
