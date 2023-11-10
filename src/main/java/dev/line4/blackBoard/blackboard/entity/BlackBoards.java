@@ -2,7 +2,6 @@ package dev.line4.blackBoard.blackboard.entity;
 
 import dev.line4.blackBoard.blackboardsticker.entity.BlackBoardStickers;
 import dev.line4.blackBoard.letter.entity.Letters;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -43,7 +42,7 @@ public class BlackBoards {
     @Column(length = 255)
     private String email;
     @Column(name = "graduate_date")
-    private LocalDateTime graduateDate;
+    private String graduateDate;
     @OneToMany(mappedBy = "boardId", fetch = FetchType.LAZY)
     private Set<BlackBoardStickers> blackBoardStickers;
     @OneToMany(mappedBy = "blackboard", cascade = CascadeType.REMOVE, orphanRemoval = true)
