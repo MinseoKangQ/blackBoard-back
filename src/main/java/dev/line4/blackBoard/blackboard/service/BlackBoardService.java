@@ -12,8 +12,6 @@ import dev.line4.blackBoard.letter.dto.LetterOpenResDto;
 import dev.line4.blackBoard.letter.entity.Letters;
 import dev.line4.blackBoard.lettersticker.dto.LetterStickerReqDto;
 import dev.line4.blackBoard.lettersticker.entity.LetterStickers;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -44,18 +42,13 @@ public class BlackBoardService {
                 .title(blackBoardReqDto.getTitle())
                 .introduction(blackBoardReqDto.getIntroduction())
                 .email(blackBoardReqDto.getEmail())
-                .graduateDate(parseGraduateDate(blackBoardReqDto.getGraduateDate()))
+                .graduateDate(blackBoardReqDto.getGraduateDate())
                 .build();
         BlackBoards savedBlackBoard = blackBoardRepository.save(blackBoards);
 
         blackBoardStickerService.createBlackBoardStickers(blackBoardReqDto.getStickers(), savedBlackBoard);
 
         return BlackBoardResDto.builder().url(randomUrl).build();
-    }
-
-    private LocalDateTime parseGraduateDate(String graduateDate) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return LocalDateTime.parse(graduateDate, formatter);
     }
 
     public BlackBoardOpenResDto getBlackBoardAndLetter(String blackboardId) {
@@ -67,16 +60,10 @@ public class BlackBoardService {
         return BlackBoardOpenResDto.builder()
                 .title(blackBoard.getTitle())
                 .introduction(blackBoard.getIntroduction())
-                .graduateDate(formatGraduateDate(blackBoard.getGraduateDate()))
+                .graduateDate(blackBoard.getGraduateDate())
                 .boardStickers(boardStickers)
                 .letters(letters)
                 .build();
-    }
-
-    // localtime -> string
-    private String formatGraduateDate(LocalDateTime graduateDate) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return graduateDate.format(formatter);
     }
 
     private List<BlackBoardStickerResDto> mapToBlackBoardStickerResDtos(Set<BlackBoardStickers> blackBoardStickers) {
