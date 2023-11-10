@@ -8,5 +8,5 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BlackBoardCountDto {
-    private Long blackboard_count;
+    private Long blackboardCount;
 }

@@ -2,7 +2,6 @@ package dev.line4.blackBoard.blackboard.entity;
 
 import dev.line4.blackBoard.blackboardsticker.entity.BlackBoardStickers;
 import dev.line4.blackBoard.letter.entity.Letters;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -16,6 +15,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /*
@@ -31,6 +31,7 @@ url text
 @Setter
 @Entity
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "BLACKBOARD")
 public class BlackBoards {
@@ -43,13 +44,9 @@ public class BlackBoards {
     @Column(length = 255)
     private String email;
     @Column(name = "graduate_date")
-    private LocalDateTime graduateDate;
+    private String graduateDate;
     @OneToMany(mappedBy = "boardId", fetch = FetchType.LAZY)
     private Set<BlackBoardStickers> blackBoardStickers;
     @OneToMany(mappedBy = "blackboard", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Letters> letters = new ArrayList<>();
-
-    public BlackBoards() {
-
-    }
 }

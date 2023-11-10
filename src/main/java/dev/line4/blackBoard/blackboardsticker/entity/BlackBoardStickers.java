@@ -20,12 +20,14 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "BLACKBOARD_STICKERS")
 public class BlackBoardStickers {
@@ -52,8 +54,4 @@ public class BlackBoardStickers {
     @ManyToOne
     @JoinColumn(name = "board_id")
     private BlackBoards boardId;
-
-    // 기본 생성자
-    public BlackBoardStickers() {
-    }
 }
