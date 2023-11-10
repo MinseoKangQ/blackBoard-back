@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /*
@@ -30,6 +31,7 @@ url text
 @Setter
 @Entity
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "BLACKBOARD")
 public class BlackBoards {
@@ -47,8 +49,4 @@ public class BlackBoards {
     private Set<BlackBoardStickers> blackBoardStickers;
     @OneToMany(mappedBy = "blackboard", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private List<Letters> letters = new ArrayList<>();
-
-    public BlackBoards() {
-
-    }
 }
