@@ -35,4 +35,4 @@ This is SpringBoot API part of the 'Blackboard' project submitted to the Line 4 
 
 ## API Documentation
 
-https://github.com/MinseoKangQ/blackBoard-back/blob/main/api-doc.html
+[https://github.com/MinseoKangQ/blackBoard-back/blob/main/api-doc.html](https://github.com/MinseoKangQ/blackBoard-back/blob/main/api-doc.pdf)https://github.com/MinseoKangQ/blackBoard-back/blob/main/api-doc.pdf
