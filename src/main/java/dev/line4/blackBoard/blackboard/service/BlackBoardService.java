@@ -61,7 +61,7 @@ public class BlackBoardService {
                 .title(blackBoard.getTitle())
                 .introduction(blackBoard.getIntroduction())
                 .graduateDate(blackBoard.getGraduateDate())
-                .boardStickers(boardStickers)
+                .stickers(boardStickers)
                 .letters(letters)
                 .build();
     }
