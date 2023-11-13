@@ -19,10 +19,10 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .useDefaultResponseMessages(true)
+                .useDefaultResponseMessages(false)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.any()) // 모든 컨트롤러
+                .apis(RequestHandlerSelectors.basePackage("dev.line4.blackBoard")) // 모든 컨트롤러
                 .paths(PathSelectors.any())
                 .build();
     }
@@ -31,7 +31,7 @@ public class SwaggerConfig {
         return new ApiInfoBuilder()
                 .title("졸업을 축하합니다! API")
                 .version("1.0.0")
-                .description("변동될 수 있음")
+                .description("RESTful API")
                 .build();
     }
 
